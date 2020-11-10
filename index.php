@@ -92,17 +92,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>Hein Min Htet</td>
-				<td>Male</td>
-				<td>heinminhtet8138@gmail.com</td>
-				<td>
-					<button class="btn btn-primary btn-sm detail">Detail</button> 
-					<button class="btn btn-warning btn-sm edit">Edit</button> 
-					<button class="btn btn-danger btn-sm delete">Delete</button>
-				</td>
-			</tr>
+			
 		</tbody>
 	</table>
 
@@ -111,8 +101,125 @@
 <script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <script>
+$(document).ready(function(){
+
+	showData();
+	function showData(){
+
+		$.get("student.json",function(data){
+
+			if (data) {
+
+				console.log(typeof(data)); 
+
+				var stu_arr=JSON.parse(data) //optional
+
+				console.log(typeof(stu_arr));
+
+				var html='';
+				var j=1;
+				$.each(stu_arr,function(i,v){
+					
+					html+=`<tr>
+						<td>${j++}</td>
+						<td>${v.name}</td>
+						<td>${v.gender}</td>
+						<td>${v.email}</td>
+						<td>
+							<button class="btn btn-primary btn-sm detail" data-id="${i}" data-name="${v.name}" data-email="${v.email}" data-gender="${v.gender}" data-address="${v.address}" data-profile="${v.profile}">Detail</button> 
+							<button class="btn btn-warning btn-sm edit">Edit</button> 
+							<button class="btn btn-danger btn-sm delete" data-id="${i}">Delete</button>
+						</td>
+					</tr>`
+				});
+				$('tbody').html(html);
+
+
+
+
+			}
+
+		})
+
+	}
+
+
+	$("tbody").on('click','.detail',function(){
+
+		var id=$(this).data('id');
+		var name=$(this).data('name');
+		var email=$(this).data('email');
+		var address=$(this).data('address');
+		var gender=$(this).data('gender');
+		var profile=$(this).data('profile');
+		
+		// console.log(id+name+email+address+gender+profile);
+
+		$("#stu_name").html("<strong>Name: </strong>"+name);
+		$("#stu_email").html("<strong>Email: </strong>"+email);
+		$("#stu_gender").html("<strong>Gender: </strong>"+gender);
+		$("#stu_address").html("<strong>Address: </strong>"+address);
+
+		$(".stu_img").attr("src",profile);
+
+
+
+		$("#detailModal").modal('show');
+		
+	})	
+
+
+
+	$('tbody').on('click','.delete',function(){
+		var id=$(this).data('id');
+		var ans=confirm("Are You Sure Delete");
+		if (ans) {
+			$.post("deletestudent.php",{stu_id:id},function(data){
+				showData();
+			})
+		}
+	})
+
+})
+
 	
 </script>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Student Detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+        	<div class="row">
+        		<div class="col-md-5">
+        			<img src="" class="img-fluid stu_img">
+        		</div>
+        		<div class="col-md-7">
+        			<p id="stu_name"></p>
+        			<p id="stu_email"></p>
+        			<p id="stu_gender"></p>
+        			<p id="stu_address"></p>
+
+        		</div>
+        	</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
