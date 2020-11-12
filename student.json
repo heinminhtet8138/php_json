@@ -5,5 +5,19 @@
         "gender": "Male",
         "address": "Yangon,Hlaing",
         "profile": "photo\/vote2.jpg"
+    },
+    {
+        "name": "Testing one update",
+        "email": "testingone@gmail.com",
+        "gender": "Female",
+        "address": "Yangon, Myanmar",
+        "profile": "photo\/512-5123712_yummy-emoji-sticker-smile-emoji-png-transparent-png.png"
+    },
+    {
+        "name": "Testing Two",
+        "email": "testingtwo@gmail.com",
+        "gender": "Male",
+        "address": "asdfasdfa",
+        "profile": "photo\/512-5123712_yummy-emoji-sticker-smile-emoji-png-transparent-png.png"
     }
 ]
