@@ -1,0 +1,84 @@
+GIT
+------
+1.Create GitHub Account
+	Remember email & password
+
+2.Download git in window
+	(https://git-scm.com/)
+
+3.Open GitBash
+	- ကိုယ် git ပေါ်တင်ချင်တဲ့ Folder အောက်ကိုလာမယ်
+	- Right Click နှိပ်ပြီး Git Hash Here ကိုရွေးမယ်
+
+4. git init
+	.git ဆိုတဲ့ folder လေးဆောက်သွားလိမ့်မယ်
+	.git ဆိုတဲ့ folder လေးရှိမှ github ပေါ်တင်လို့ရမယ်
+
+
+5. git status
+	Local file တွေက Github ပေါ်မှာ သိမ်း / မသိမ်း ဘူးလား အခြေအနေကြည့်တာ
+
+6. git add --a
+	Local file တွေက github ပေါ် ယာယီ ခဏသိမ်း
+
+	git add git.txt
+	file ၁ခုထဲ သိမ်း
+
+7. git commit -m 'Git Lesson'
+	commit မှာ meaningful message ချန်ထားတဲ့ သဘော
+
+	========================================================================
+
+	တကယ်လို့ command က reply လာပြတယ် "*** Please Tell me who you are....." လို့ မေးခဲ့ရင်
+
+	i)	git config --global user.email "ကိုယ့်ရဲ့ github account email"
+	ii)	git config --global user.name "ကိုယ့်ရဲ့ github account username"
+	iii) password တောင်းခဲ့ရင် ကိုယ်ဖွင့်ခဲ့ github account password ကိုရိုက်ထည့် 
+
+
+	ပြီးရင်တော့ No7 command လေး ပြန်ရိုက်ပေးပါ။
+
+	=======================================================================
+
+8. Open Github account in browser
+
+9. Create New Repository
+
+10. Copy Repository Path
+		(https://github.com/yathaw/tgif.git)
+
+11. git remote add origin https://github.com/yathaw/tgif.git
+						( copyကူးလာတဲ့ repository path လမ်းကြောင်းလေးကို past ချမယ် )
+
+
+12. git push origin master
+
+13. ( Optional )
+		github account  ရဲ့ email / username / password တောင်းခဲ့ရင် ဖြည့်ပေးပါ။
+
+14. GitHub ပေါ်တင်ပြီးပါပြီ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
